@@ -10,7 +10,7 @@
 	        message = new Paho.MQTT.Message(msg_str);
 	        message.destinationName = "uicomm/j-p";
 	        client.send(message);    
-	        console.log('publishing test message:' + msg_str);
+	        console.log('publishing message:' + msg_str);
    	   };
     </script>
   </head>
@@ -18,9 +18,9 @@
   <body> 
   <h2>Message from Python:&nbsp<span id="msg_txt"></span></h2><br>
   <div>
-  <p>The Python client publishes an MQTT message with an updated count every two seconds. JavaScript updates the text above when the message is received.</p>
-  <p>If the button below is clicked, JavaScript sends a message to Python via MQTT over websockets. The message says "run reply".</p>
-  <p> When Python receives the message it prints the message to the console and runs the function named "reply" which sends a message back (round trip) and re-sets the counter.</p>
+  <p>The Python client publishes an MQTT message with an updated message count every two seconds. JavaScript updates the text above when the message is received.</p>
+  <p>If the button below is clicked, JavaScript sends a message to Python. The message is "run reply".</p>
+  <p> When Python receives the message it prints the message to the console and runs the function named "reply" which sends a message back (round trip) and re-sets the message counter.</p>
   </div><br>
     <button id="publish_pb" onclick="pub()" type="button">Send Message to Python</button><br>
   </body>

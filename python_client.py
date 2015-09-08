@@ -47,7 +47,7 @@ client.loop_start()
 count = 0
 try:
 	while True:
-		publish_mqtt("message number: " + str(count) )
+		publish_mqtt("message number " + str(count) )
 		count += 1
 		time.sleep(2)
 except Exception as err:

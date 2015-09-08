@@ -1,4 +1,4 @@
-var client = new Paho.MQTT.Client("192.168.1.100", Number(9001), "clientId" + Date.now().toString());
+var client = new Paho.MQTT.Client("[url of pi]", Number(9001), "clientId" + Date.now().toString());
 
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
