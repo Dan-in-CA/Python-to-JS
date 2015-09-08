@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <script src="./jquery-1.11.3.js"></script>
+    <script src="./mqttws31.js"></script>
+    <script src="./jsClient.js"></script>
+    <script>
+	    function pub() {
+	        var msg_str = "run reply";
+	        message = new Paho.MQTT.Message(msg_str);
+	        message.destinationName = "uicomm/j-p";
+	        client.send(message);    
+	        console.log('publishing test message:' + msg_str);
+   	   };
+    </script>
+  </head>
+  
+  <body> 
+  <h2>Message from Python:&nbsp<span id="msg_txt"></span></h2><br>
+  <div>
+  <p>The Python client publishes an MQTT message with an updated count every two seconds. JavaScript updates the text above when the message is received.</p>
+  <p>If the button below is clicked, JavaScript sends a message to Python via MQTT over websockets. The message says "run reply".</p>
+  <p> When Python receives the message it prints the message to the console and runs the function named "reply" which sends a message back (round trip) and re-sets the counter.</p>
+  </div><br>
+    <button id="publish_pb" onclick="pub()" type="button">Send Message to Python</button><br>
+  </body>
+</html>
